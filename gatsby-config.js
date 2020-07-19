@@ -2,22 +2,25 @@ module.exports = {
   plugins: [
     {
       resolve: `gatsby-theme-blog`,
-      options: {},
+      options: {
+        
+        prismPreset: `dracula`,
+      },
     },
   ],
   // Customize your site metadata:
   siteMetadata: {
-    title: `My Blog Title`,
-    author: `My Name`,
+    title: `Teu Dev`,
+    author: `Eugene Teu`,
     description: `My site description...`,
     social: [
       {
-        name: `twitter`,
-        url: `https://twitter.com/gatsbyjs`,
+        name: `linkedin`,
+        url: `https://www.linkedin.com/in/eugeneteu/`,
       },
       {
         name: `github`,
-        url: `https://github.com/gatsbyjs`,
+        url: `https://github.com/EugeneTeu`,
       },
     ],
   },
