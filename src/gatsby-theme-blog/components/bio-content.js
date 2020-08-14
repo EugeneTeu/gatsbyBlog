@@ -8,9 +8,10 @@ import { Styled } from "theme-ui"
 export default function Bio() {
   return (
     <>
-      Hello, <Styled.a href="https://eugeneteu.github.io/">Eugene here</Styled.a>
-      <br />
-     Welcome to my blog. Year 3 Computer Science Student specializing in Software Engineering, Networks and Database.
+      Hello,{" "}
+      <Styled.a href="https://eugeneteu.github.io/">Eugene here</Styled.a>{" "}
+      <br />I am currently a Year 3 Computer Science Student specializing in
+      Software Engineering, Networks and Database.
     </>
   )
 }

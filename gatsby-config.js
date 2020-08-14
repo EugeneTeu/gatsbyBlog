@@ -1,18 +1,11 @@
 module.exports = {
-  plugins: [
-    {
-      resolve: `gatsby-theme-blog`,
-      options: {
-        
-        prismPreset: `dracula`,
-      },
-    },
-  ],
+  plugins: [],
   // Customize your site metadata:
   siteMetadata: {
     title: `Teu Dev`,
     author: `Eugene Teu`,
-    description: `My site description...`,
+    siteUrl: "https://eugeneteu.surge.sh",
+    description: `Computer science, software engineering, NUS, Eugene teu, react`,
     social: [
       {
         name: `linkedin`,
