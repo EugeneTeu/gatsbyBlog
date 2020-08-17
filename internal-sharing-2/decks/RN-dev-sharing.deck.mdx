@@ -28,11 +28,33 @@ Cons:
 
 gatsby-slide
 
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  }}
+>
+  <h2> What if there was a better way of #learningInPublic ? </h2>
+  <h3> Don't require an entire site as dependency? </h3>
+</div>
+
+gatsby-slide
+
 <h2 style={{ color: "tomato", textAlign: "center" }}>
   Introducing: Github Profile Readme!
 </h2>
 
 ![Example](/images/github-readme-example.png)
+
+gatsby-slide
+
+<h2 style={{ color: "tomato", textAlign: "center" }}>
+  Introducing: Github Profile Readme!
+</h2>
 
 ![Example](/images/github-readme-example-2.png)
 
@@ -66,10 +88,30 @@ gatsby-slide
 
 gatsby-slide
 
-<h1>Google SPS</h1>
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  }}
+>
+  <h1>Google SPS</h1>
+</div>
 
 gatsby-slide
 
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
 <h2 style={{ color: "tomato", textAlign: "center" }}>
   Google Software Product Sprint APAC
 </h2>
@@ -82,21 +124,189 @@ gatsby-slide
 - 11 Week program
 - " Software Product Sprint students design and build web apps, gain applied Data Structures and Algorithm skills, and receive tailored career development resources."
 - Mentorship by a <span style={{ color: "tomato" }}>Google Engineer</span>
+- Total of 43 students for this cohort in SG
+
+</div>
 
 gatsby-slide
 
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
 <h1 style={{ color: "tomato", textAlign: "center" }}>Cool freebies!</h1>
 
 ### Swag
 
 ![Freebies](/images/swag-1.png)
 
+</div>
+
+gatsby-slide
+
+<div style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}>
+  <h1 style={{ color: "tomato", textAlign: "center" }}>Cool freebies!</h1>
+
 ### Cupcakes
 
 ![Freebies](/images/cupcakes.png)
 
+</div>
+
 gatsby-slide
 
-<h1>The End</h1>
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <h1 style={{ textAlign: "center" }}>Curriculum</h1>
+  <h2>11-week program split into two portions:</h2>
+  <ul>
+    <li>
+      First 4 weeks:{" "}
+      <span style={{ color: "purple" }}>Intro to Web Development</span>
+    </li>
+    <li>
+      Next 7 weeks: <span style={{ color: "red" }}>Build a product</span>
+    </li>
+  </ul>
+</div>
+
+gatsby-slide
+
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <h1 style={{ textAlign: "center" }}>Intro to Web Development</h1>
+  <h2>Back 2 basics</h2>
+  <ul>
+    <li>Create portfolio site with vanilla CSS and Js</li>
+    <li>
+      Implement simple calls to Blobstore API with using vanilla js and Java
+      Servlets
+    </li>
+  </ul>
+</div>
+
+gatsby-slide
+
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <h1 style={{ textAlign: "center" }}>My Site</h1>
+
+![portfolio](/images/sps-portfolio.png)
+
+[Link](https://eugene-sps.uc.r.appspot.com/)
+
+</div>
+
+gatsby-slide
+
+<h1 style={{ textAlign: "center" }}>Some Code Snippets</h1>
+
+```js live=true
+/** Fetch image upload url and show form to submit comment with image */
+async function fetchBlobstoreUrlAndShowForm() {
+  const response = await fetch("/blobstore-upload-url")
+  const imageUploadUrl = await response.text()
+  const messageForm = document.getElementById("my-form")
+  messageForm.action = imageUploadUrl
+  messageForm.classList.remove("blob-store")
+}
+```
+
+gatsby-slide
+
+<h1 style={{ textAlign: "center" }}>Some Code Snippets</h1>
+
+```java live=true
+/** Servlet responsible for return url to servlet for user to upload. */
+@WebServlet("/blobstore-upload-url")
+public class BlobstoreUploadUrlServlet extends HttpServlet {
+  private final  BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  throws IOException {
+    String uploadUrl = blobstoreService.createUploadUrl("/comments");
+
+    response.setContentType("text/html");
+    response.getWriter().println(uploadUrl);
+  }
+```
+
+gatsby-slide
+
+<h1 style={{ textAlign: "center" }}>Other Notable things</h1>
+
+- Code reviews
+- Applied algo + ds in week 4 (Leetcode question but in the context of a real application - Merging Intervals)
+- Weekly Workshops by Google
+- Trivia: Googlers are called: Nooglers, xooglers etc etc depending on what they are doing / status
+
+gatsby-slide
+
+<h1 style={{ textAlign: "center" }}>10x thinking</h1>
+
+### What it is:
+
+- ~~Google brainwashing~~
+- Google's culture of innovation
+- To put the idea simply: true innovation happens when you try to improve something by 10 times rather than by 10%.
+- Pushes you beyond existing models and forces you to totally reimagine how to approach a problem.
+- "10x is easier than 10%"
+
+### Where can you find it:
+
+- Google x - the moonshot company
+- Projects like Tidal, Everyday Robot etc
+
+### Primers:
+
+- Really about going the extra mile and not settling
+- Strive for excellence
+
+gatsby-slide
+
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <h1 style={{ color: "tomato", textAlign: "center" }}>The End!</h1>
+</div>
 
 gatsby-slide
