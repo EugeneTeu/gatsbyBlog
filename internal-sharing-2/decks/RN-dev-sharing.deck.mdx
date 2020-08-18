@@ -12,6 +12,26 @@ import DeckTitle from "gatsby-theme-slidedeck/src/components/deckTitle"
 
 gatsby-slide
 
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <h1>Before we continue....</h1>
+  <h2>Ending my internship this fri</h2>
+  <h3>Thanks for all the guidance + lunch sessions</h3>
+
+  <p>Hope to come back!</p>
+  
+</div>
+
+
+gatsby-slide
+
 <h2 style={{ color: "tomato", textAlign: "center" }}>Github Pages!</h2>
 
 Everyone's favourite way of pimping up our portfolio
@@ -252,7 +272,8 @@ gatsby-slide
 /** Servlet responsible for return url to servlet for user to upload. */
 @WebServlet("/blobstore-upload-url")
 public class BlobstoreUploadUrlServlet extends HttpServlet {
-  private final  BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+  private final  BlobstoreService blobstoreService =
+      BlobstoreServiceFactory.getBlobstoreService();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -268,14 +289,208 @@ gatsby-slide
 
 <h1 style={{ textAlign: "center" }}>Other Notable things</h1>
 
+### Stuff I did
+
 - Code reviews
 - Applied algo + ds in week 4 (Leetcode question but in the context of a real application - Merging Intervals)
 - Weekly Workshops by Google
-- Trivia: Googlers are called: Nooglers, xooglers etc etc depending on what they are doing / status
+  - Career development
+  - Past internship Sharing
+  - Technical interview workshops
+
+### Mock Interviews
+
+- Mock Interviews 1 & 2
+- 2 session with Google engineers
+- Conducted over google docs
 
 gatsby-slide
 
-<h1 style={{ textAlign: "center" }}>10x thinking</h1>
+<h1 style={{ textAlign: "center" }}>Software Sprint</h1>
+
+<h2 style={{ textAlign: "center" }}> The Fun Portion</h2>
+
+<h2 style={{ textAlign: "center" }}> GroupBuy20</h2>
+
+### What it is
+
+- Our attempt at solving the last mile delivery problem
+- A platform to enable people to post requests and ask for things
+- Users are able to complete requests to earn a fee
+- Think of Grabfood but without grabbing your wallets!
+- Leverage on the community
+
+### Use case
+
+- Within University Dorms
+- Within an organisation
+- Users can help each other buy and deliver stuff (not limited to food)
+
+### Who
+
+- 3 participants including me (all year 2 )
+
+[Link](https://spsteam10-748f8.firebaseapp.com/)
+
+gatsby-slide
+
+import { FaReact, FaFireAlt } from "react-icons/fa"
+
+<h1 style={{ textAlign: "center" }}>Tech Stack</h1>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <h1 style={{ marginRight: "12px", fontSize: "30vh" }}>
+    <FaReact />
+  </h1>
+  <h1 style={{ marginLeft: "12px", fontSize: "30vh" }}>
+    <FaFireAlt />
+  </h1>
+</div>
+
+gatsby-slide
+
+<h1 style={{ color: "blue", textAlign: "center" }}>
+  #Firebase makes things easy
+</h1>
+<h2>Google Login</h2>
+
+```js live=true
+  const uiConfig = {
+        signInFlow: "popup",
+        signInSuccessUrl: "/dashboard",
+        signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        ],
+    }
+
+    <StyledFirebaseAuth
+                uiConfig={uiConfig}
+                firebaseAuth={firebase.auth()}
+          />
+```
+
+gatsby-slide
+
+<h1 style={{ color: "blue", textAlign: "center" }}>#Firebase + Context</h1>
+
+```js live=true
+const config = {
+  apiKey: process.env.REACT_APP_API_KEY,
+  .......
+}
+const firebaseApp = firebase.initializeApp(config)
+export const db = firebase.firestore(firebaseApp)
+ReactDOM.render(
+  <FirebaseContext.Provider value={{ firebase: firebase, firebaseApp }}>
+    <App />
+  </FirebaseContext.Provider>,
+  document.getElementById("root")
+)
+```
+
+gatsby-slide
+
+<h1 style={{ color: "blue", textAlign: "center" }}>
+  API approach (Technically there isn't one)
+</h1>
+
+```js live=true
+const getOpenOffers: () => Promise<Offer[]> = async () => {
+  const offersRef = await db
+    .collection(COLLECTION_OFFERS)
+    .where("status", "==", Status.OPEN)
+    .get()
+  const temp: firebase.firestore.QueryDocumentSnapshot<firebase.firestore.DocumentData>[] = []
+  offersRef.forEach(offerSnapshot => temp.push(offerSnapshot))
+  const offers: Offer[] = []
+  await Promise.all(
+    temp.map(taskSnapShot => offerConverter.fromFirestore(taskSnapShot))).then(values => {
+      values.forEach(value => offers.push(value))
+    }).catch(e =>
+      console.error(`Encountered error while retrieving offer: ${e.message}`))
+  return offers
+    .filter((value: Offer) => value.status === Status.OPEN)
+    .sort((prev, curr) =>
+      sortByReverseOrder(prev.expectedDeliveryTime, curr.expectedDeliveryTime))
+}
+```
+
+gatsby-slide
+
+<h2 style={{ color: "tomato", textAlign: "center" }}>
+  What I have learnt
+</h2>
+
+<h3 style={{textAlign: 'left'}}>
+  Not everyone is into <span style={{ color: "tomato" }}> #webDevelopment</span>
+</h3>
+
+- Spending time around people of similar interests 
+- Assume that things are trivial and easy 
+- Always think about learning curve when we introduce technology 
+- Accept that everyone has different learning abilities -> be patient
+
+<h3 style={{textAlign: 'left'}}>
+ It was fun to be a <span style={{ color: "tomato" }}> #cowboyDeveloper</span>
+</h3>
+
+- Fast bootstrapping 
+- When speed is of the essence, the way we write software is slightly different
+- Love the challenge and the pressure 
+- Time and space for everything 
+
+<h3 style={{textAlign: 'left'}}>
+ So many new tech out there to <span style={{ color: "tomato" }}> #explore</span>
+</h3>
+
+- Field moves so fast 
+- We have to keep exploring to stay relevant
+- Literally forced to reinvent ourselves
+
+
+
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  }}
+>
+  <h1>The Most Interesting Thing out of all this.....</h1>
+</div>
+
+gatsby-slide
+
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  }}
+>
+  <h1>10x thinking</h1>
+</div>
+
+gatsby-slide
+
+
+![10x](/images/10x.jpg)
+
+gatsby-slide
 
 ### What it is:
 
@@ -290,10 +505,22 @@ gatsby-slide
 - Google x - the moonshot company
 - Projects like Tidal, Everyday Robot etc
 
-### Primers:
+gatsby-slide
 
-- Really about going the extra mile and not settling
-- Strive for excellence
+
+<h1 style={{ textAlign: "center" }}>Everyday Robot</h1>
+
+![everyday-robot](/images/everyday-robots.png)
+
+- Teaching robots how to operate in unstructured environment
+
+gatsby-slide
+
+<h1 style={{ textAlign: "center" }}>I would like to leave everyone with a question today</h1>
+
+
+<h2  style={{ color:'tomato', textAlign: "center" }}>How can we adopt this in our daily lives? </h2>
+
 
 gatsby-slide
 
