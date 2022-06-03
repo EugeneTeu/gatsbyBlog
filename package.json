@@ -11,7 +11,7 @@
   "license": "0BSD",
   "dependencies": {
     "gatsby": "^2.23.12",
-    "gatsby-plugin-mdx": "^1.2.34",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-theme-blog": "^2.0.0",
     "gatsby-theme-blog-darkmode": "^2.0.1",
     "gatsby-theme-slidedeck": "^1.0.3",
